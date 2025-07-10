@@ -1,0 +1,12 @@
+services:
+  draftly:
+    image: ghcr.io/ermolaev-frontend/draftly:latest
+    container_name: draftly
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - web
+networks:
+  web:
+    external: true

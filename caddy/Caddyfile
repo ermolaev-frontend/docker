@@ -1,0 +1,24 @@
+v2ray.ermolaev-frontend.ru {
+  reverse_proxy /v2ray v2ray:10000 {
+    header_up Host {host}
+    header_up X-Real-IP {remote_host}
+    header_up X-Forwarded-For {remote_host}
+    header_up X-Forwarded-Proto {scheme}
+  }
+  encode gzip
+}
+
+draftly.ermolaev-frontend.ru {
+  reverse_proxy draftly:80
+  encode gzip
+}
+
+yt.ermolaev-frontend.ru {
+  reverse_proxy yt-download-server:3000 {
+    header_up Host {host}
+    header_up X-Real-IP {remote_host}
+    header_up X-Forwarded-For {remote_host}
+    header_up X-Forwarded-Proto {scheme}
+  }
+  encode gzip
+}

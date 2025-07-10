@@ -1,0 +1,21 @@
+services:
+  yt-download-server:
+    image: ghcr.io/your-username/yt-download:latest
+    container_name: yt-download-server
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
+
+volumes:
+  logs:

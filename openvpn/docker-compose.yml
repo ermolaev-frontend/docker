@@ -1,0 +1,16 @@
+services:
+  openvpn:
+    image: kylemanna/openvpn
+    container_name: openvpn
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "1194:1194/udp"
+    volumes:
+      - ovpn_data:/etc/openvpn
+    environment:
+      - EASYRSA_BATCH=1
+
+volumes:
+  ovpn_data: {}
