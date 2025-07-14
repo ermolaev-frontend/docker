@@ -13,6 +13,11 @@ draftly.ermolaev-frontend.ru {
   encode gzip
 }
 
+draftly-backend.ermolaev-frontend.ru {
+  reverse_proxy draftly-backend:3002
+  encode gzip
+}
+
 yt.ermolaev-frontend.ru {
   reverse_proxy yt-download-server:3000 {
     header_up Host {host}
