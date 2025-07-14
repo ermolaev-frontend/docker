@@ -1,0 +1,15 @@
+services:
+  draftly-backend:
+    image: ghcr.io/ermolaev-frontend/draftly-backend:latest
+    container_name: draftly-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3002:3002"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
